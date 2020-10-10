@@ -31,6 +31,7 @@
 * Boat controller handles updates where two boats swap places if there is already a boat at the spot you want to move it to.
 * Thorough Model validations for `Boat` attributes to make meaningful errors for the UI.
 * Responsive interface and toggleable forms.
+* Boats are dynamically styled with length as the width of the html element along with color.
 
 ## Future Directions
 
