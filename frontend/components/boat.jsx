@@ -1,11 +1,14 @@
 import React from "react";
 
 export default function Boat(props) {
-  // name, length, color
+  const { name, length, color } = props;
 
   return (
-    <div>
-      Im a BOAT!
+    <div className="boat-container">
+      <p>Im a BOAT!</p>
+      <p>{name}</p>
+      <p>{length}</p>
+      <p>{color}</p>
     </div>
   );
 }
