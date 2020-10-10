@@ -4,14 +4,13 @@ import ErrorsList from "./errors_list";
 import { fetchAllBoats } from "../util/api_utils";
 
 export default function App() {
-  const NUM_SPOTS = 20;
   const [spots, setSpots] = useState({});
   const [errors, setErrors] = useState([]);
 
   /*
     Initialize state with all boats from DB
   */
-  function loadAllBoatsToState() {
+  function loadAllBoatsToAppState() {
     fetchAllBoats()
       .then((res) => res.json())
       .then((allBoatsJson) => setSpots(allBoatsJson))
@@ -19,27 +18,11 @@ export default function App() {
   }
 
   useEffect(() => {
-    loadAllBoatsToState();
+    loadAllBoatsToAppState();
   }, []);
 
   /*
-    Handle adding, moving, and removing a boat
-  */
-
-  function addNewBoat() {
-
-  }
-
-  function moveBoat() {
-
-  }
-
-  function removeBoat() {
-
-  }
-
-  /*
-    Prepare all spots index view
+    Prepare all spots list
   */
   const spotArray = [];
 
@@ -50,15 +33,15 @@ export default function App() {
 
   const spotItems = spotArray.map((boat, i) => (
     <Spot
-      key={i} spotNum={i + 1} boat={boat}
-      addNewBoat={addNewBoat}
-      moveBoat={moveBoat}
-      removeBoat={removeBoat}
+      key={i}
+      spotNum={i + 1}
+      boat={boat}
+      loadAllBoatsToAppState={loadAllBoatsToAppState}
     />
   ));
 
   /*
-    Display errors
+    Display errors for DB fetch
   */
   const errorsIndex = errors.length > 0 ? <ErrorsList errors={errors} /> : null;
 

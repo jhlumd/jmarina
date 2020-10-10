@@ -1,5 +1,5 @@
 class Boat < ApplicationRecord
-  COLORS = ["red", "orange", "yellow", "green", "blue", "navy", "purple"]
+  COLORS = ["red", "orange", "yellow", "green", "blue", "navy", "purple"].freeze
 
   validates :name, :length, :color, presence: true
   validates :length, numericality: { only_integer: true,

@@ -5,7 +5,7 @@ import MoveForm from "./forms/move_form";
 import RemoveForm from "./forms/remove_form";
 
 export default function Spot(props) {
-  const { boat, addNewBoat, moveBoat, removeBoat } = props;
+  const { boat, spotNum, loadAllBoatsToAppState } = props;
 
   /*
     When the spot is empty, there is a form to add a new boat to this spot
@@ -13,7 +13,10 @@ export default function Spot(props) {
   let boatItem = null;
   let formSection = (
     <div className="forms-container">
-      <AddForm addNewBoat={addNewBoat} />
+      <AddForm
+        loadAllBoatsToAppState={loadAllBoatsToAppState}
+        spotNum={spotNum}
+      />
     </div>
   );
 
@@ -25,8 +28,15 @@ export default function Spot(props) {
     boatItem = <Boat name={name} length={length} color={color} />;
     formSection = (
       <div className="forms-container">
-        <MoveForm moveBoat={moveBoat} />
-        <RemoveForm removeBoat={removeBoat} />
+        <MoveForm
+          loadAllBoatsToAppState={loadAllBoatsToAppState}
+          spotNum={spotNum}
+          boatId={boat.id}
+        />
+        <RemoveForm
+          loadAllBoatsToAppState={loadAllBoatsToAppState}
+          boatId={boat.id}
+        />
       </div>
     );
   }
