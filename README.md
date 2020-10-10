@@ -1,4 +1,4 @@
-# <img src="./public/favicon.ico" alt="Boat Icon" width="55" align="center"> Marina — a mini React/Rails app for managing your marina
+# <img src="./public/favicon.ico" alt="Boat Icon" width="55" align="center"> Marina — a mini Rails/React (Hooks) app
 
 ## Table of Contents
 
@@ -28,6 +28,7 @@
 
 ## Features
 
+* Uses only function components with React Hooks.
 * Boat controller handles updates where two boats swap places if there is already a boat at the spot you want to move it to.
 * Thorough Model validations for `Boat` attributes to make meaningful errors for the UI.
 * Responsive interface and toggleable forms.
