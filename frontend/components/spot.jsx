@@ -1,8 +1,7 @@
 import React from "react";
 import Boat from "./boat";
 import AddForm from "./forms/add_form";
-import MoveForm from "./forms/move_form";
-import RemoveForm from "./forms/remove_form";
+import MoveRemoveForm from "./forms/move_remove_form";
 
 export default function Spot(props) {
   const { boat, spotNum, loadAllBoatsToAppState } = props;
@@ -28,13 +27,9 @@ export default function Spot(props) {
     boatItem = <Boat name={name} length={length} color={color} />;
     formSection = (
       <div className="forms-container">
-        <MoveForm
+        <MoveRemoveForm
           loadAllBoatsToAppState={loadAllBoatsToAppState}
           spotNum={spotNum}
-          boatId={boat.id}
-        />
-        <RemoveForm
-          loadAllBoatsToAppState={loadAllBoatsToAppState}
           boatId={boat.id}
         />
       </div>
@@ -43,7 +38,7 @@ export default function Spot(props) {
 
   return (
     <div className="spot-container">
-      <p>spot num: {props.spotNum}</p>
+      <h2>Spot #{props.spotNum}</h2>
       {boatItem}
       {formSection}
     </div>

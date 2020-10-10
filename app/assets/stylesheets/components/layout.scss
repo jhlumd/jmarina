@@ -1,0 +1,41 @@
+// Layout
+#root {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $lightgrey;
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1120px;
+    background-color: white;
+
+    .header {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      font-size: $large-fz;
+      background-color: lightgray;
+      border-radius: 1rem;
+
+      h1 {
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 20px;
+      }
+    }
+
+    .spots-grid {
+      margin-top: 10px;
+      display: grid;
+      width: 1120px;
+      height: calc(100vh - 50px);
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      grid-gap: 10px 10px;
+      grid-auto-flow: column;
+    }
+  }
+}

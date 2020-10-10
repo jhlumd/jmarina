@@ -47,9 +47,13 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <h1>Marina</h1>
+      <div className="header">
+        <h1>Marina</h1>
+      </div>
       {errorsIndex}
-      {spotItems}
+      <div className="spots-grid">
+        {spotItems}
+      </div>
     </div>
   );
 }

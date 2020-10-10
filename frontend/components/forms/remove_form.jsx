@@ -17,6 +17,6 @@ export default function RemoveForm(props) {
   }
 
   return (
-    <button onClick={handleRemoveBoat}>Destroy</button>
+    <button className="orange" onClick={handleRemoveBoat}>Destroy</button>
   );
 }

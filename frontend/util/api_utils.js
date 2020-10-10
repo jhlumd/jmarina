@@ -1,4 +1,3 @@
-// fixme: const boat1 = { name: "lucy", length: 10, color: "yellow", spot_number: 5 };
 // Boat index api
 export const fetchAllBoats = () => {
   return fetch("/api/boats", { method: "GET" });

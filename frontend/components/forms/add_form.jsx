@@ -58,7 +58,7 @@ export default function AddForm(props) {
 
   if (opened) {
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="toggle-form" onSubmit={handleSubmit}>
         {errorsIndex}
 
         <label htmlFor="nameInput">Name:</label>
@@ -89,7 +89,9 @@ export default function AddForm(props) {
           value={color}
           onChange={updateColor}
         >
-          <option disabled value>--Color--</option>
+          <option disabled value>
+            -- Select a Color --
+          </option>
           {COLORS.map((col, i) => {
             return (
               <option value={col} key={i}>
@@ -99,8 +101,10 @@ export default function AddForm(props) {
           })}
         </select>
 
-        <input type="submit" />
-        <button onClick={closeForm}>Cancel</button>
+        <div>
+          <input className="blue" type="submit" />
+          <button onClick={closeForm}>Cancel</button>
+        </div>
       </form>
     );
   } else {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import RemoveForm from "./remove_form";
 import ErrorsList from "../errors_list";
 import { updateBoat } from "../../util/api_utils";
 
-export default function MoveForm(props) {
+export default function MoveRemoveForm(props) {
   /*
     Handle toggleable form
   */
@@ -49,6 +50,7 @@ export default function MoveForm(props) {
         // Match frontend app state if successful create
         if (res.ok) {
           // or res.status === 200
+          setDestSpotNum(undefined);
           closeForm();
           loadAllBoatsToAppState();
         }
@@ -58,7 +60,7 @@ export default function MoveForm(props) {
 
   if (opened) {
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="toggle-form" onSubmit={handleSubmit}>
         {errorsIndex}
 
         <label htmlFor="destinationSpot">Move to Spot #:</label>
@@ -79,11 +81,21 @@ export default function MoveForm(props) {
           })}
         </select>
 
-        <input type="submit" />
-        <button onClick={closeForm}>Cancel</button>
+        <div>
+          <input className="blue" type="submit" />
+          <button onClick={closeForm}>Cancel</button>
+        </div>
       </form>
     );
   } else {
-    return <button onClick={openForm}>Move</button>;
+    return (
+      <div className="move-remove">
+        <RemoveForm
+          loadAllBoatsToAppState={loadAllBoatsToAppState}
+          boatId={boatId}
+        />
+        <button onClick={openForm}>Move</button>
+      </div>
+    );
   }
 }
