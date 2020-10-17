@@ -10,7 +10,6 @@
 
 ## Getting Started
 
-* Clone the repo
 * `bundle install`
 * `npm install`
 * `rails db:setup`
